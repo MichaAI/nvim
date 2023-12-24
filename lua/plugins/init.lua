@@ -4,18 +4,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-require('lsp_config')
-
-
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-
-    -- набор Lua функций, используется как зависимость в большинстве
-  -- плагинов, где есть работа с асинхронщиной
   use 'nvim-lua/plenary.nvim'
-    
-  -- конфиги для LSP серверов, нужен для простой настройки и
-  -- возможности добавления новых серверов
   use 'neovim/nvim-lspconfig'
   use 'powerman/vim-plugin-ruscmd'
   use 'dense-analysis/ale'
@@ -36,13 +27,9 @@ return require('packer').startup(function(use)
   }
     
   use 'https://github.com/kyazdani42/nvim-tree.lua'
-  
-    use {
-      'kyazdani42/nvim-web-devicons',
-  }
-    
+  use {'kyazdani42/nvim-web-devicons'}
   use('onsails/lspkind-nvim')
-
+  
   use {
     'nvim-lualine/lualine.nvim',
     config = function()
@@ -51,27 +38,19 @@ return require('packer').startup(function(use)
       }
     end
   }
-  
-  use {
-  'pwntester/octo.nvim',
-  requires = {
-    'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope.nvim',
-    'nvim-tree/nvim-web-devicons',
-  },
-  config = function ()
-    require"octo".setup()
-  end
-  }
-  
+
+
+
   use {
   "NeogitOrg/neogit",
   dependencies = {
     "nvim-lua/plenary.nvim",         -- required
     "sindrets/diffview.nvim",        -- optional - Diff integration
   },
-  require('neogit').setup()
+    require('neogit').setup()
   }
+  
+  use 'preservim/nerdtree'
 
   if packer_bootstrap then
     require('packer').sync()
