@@ -32,24 +32,12 @@ return require('packer').startup(function(use)
   
   use {
     'nvim-lualine/lualine.nvim',
-    config = function()
-      require('lualine').setup {
+    config = function() require('lualine').setup {
         options = { theme = 'onedark' },
       }
     end
   }
 
-
-
-  use {
-  "NeogitOrg/neogit",
-  dependencies = {
-    "nvim-lua/plenary.nvim",         -- required
-    "sindrets/diffview.nvim",        -- optional - Diff integration
-  },
-    require('neogit').setup()
-  }
-  
   use 'preservim/nerdtree'
 
   if packer_bootstrap then
