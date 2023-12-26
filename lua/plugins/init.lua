@@ -6,7 +6,7 @@ return require('packer').startup(function(use)
   -- набор Lua функций, используется как зависимость в большинстве
   -- плагинов, где есть работа с асинхронщиной
   use 'nvim-lua/plenary.nvim'
-    
+  use 'andweeb/presence.nvim'
   -- конфиги для LSP серверов, нужен для простой настройки и
   -- возможности добавления новых серверов
    use({
