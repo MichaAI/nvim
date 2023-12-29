@@ -29,10 +29,13 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp' 
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
-
-  -- движок автодополнения для LSP
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/cmp-calc'
+  use 'f3fora/cmp-spell'
+  use 'tamago324/cmp-zsh'
+  use 'hrsh7th/cmp-nvim-lsp-signature-help'
   use 'hrsh7th/nvim-cmp'
-  
+
   -- Иконки для расширений файлов (для корректной работы нужен
   -- установленный один из Nerd шрифтов в терминале) - опционален
   -- https://github.com/ryanoasis/nerd-fonts
@@ -43,8 +46,6 @@ return require('packer').startup(function(use)
       end
   }
     
-    -- отображение буфферов/табов в верхнем горизонтальном меню
-  -- p.s. сам не использую, мне хватает telescope
   -- движок сниппетов
   use {
     'L3MON4D3/LuaSnip',
@@ -84,6 +85,8 @@ return require('packer').startup(function(use)
 	"windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
   }
+
+  
 
   if packer_bootstrap then
     require('packer').sync()
