@@ -2,7 +2,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'powerman/vim-plugin-ruscmd'
   use 'dense-analysis/ale'
-  
+ 
   -- набор Lua функций, используется как зависимость в большинстве
   -- плагинов, где есть работа с асинхронщиной
   use 'nvim-lua/plenary.nvim'
@@ -86,7 +86,11 @@ return require('packer').startup(function(use)
     config = function() require("nvim-autopairs").setup {} end
   }
 
-  
+ use {
+     'prettier/vim-prettier',
+	     run = 'yarn install --frozen-lockfile --production',
+     ft = {'javascript', 'typescript', 'css', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'}
+	   }
 
   if packer_bootstrap then
     require('packer').sync()

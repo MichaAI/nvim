@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "eslint": "^8.56.0",
+    "jsonls": "^0.0.4"
+  }
+}
