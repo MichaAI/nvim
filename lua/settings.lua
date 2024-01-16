@@ -2,9 +2,11 @@ local opt = vim.opt
 
 opt.number =true
 opt.relativenumber = true
-
+opt.autoindent = true
 opt.numberwidth = 3
 opt.tabstop = 4
+opt.softtabstop=4
+opt.shiftwidth=4
 
 opt.foldcolumn = '2'
 -- import nvim-cmp plugin safely

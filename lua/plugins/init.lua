@@ -35,6 +35,7 @@ return require('packer').startup(function(use)
   use 'tamago324/cmp-zsh'
   use 'hrsh7th/cmp-nvim-lsp-signature-help'
   use 'hrsh7th/nvim-cmp'
+  use 'https://github.com/ryanoasis/vim-devicons'
 
   -- Иконки для расширений файлов (для корректной работы нужен
   -- установленный один из Nerd шрифтов в терминале) - опционален
@@ -91,6 +92,13 @@ return require('packer').startup(function(use)
 	     run = 'yarn install --frozen-lockfile --production',
      ft = {'javascript', 'typescript', 'css', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'}
 	   }
+ 
+  use({
+  "glacambre/firenvim",
+  run = function() fn["firenvim#install"](0) end,
+  opt = true,
+  setup = [[vim.cmd('packadd firenvim')]],
+  })
 
   if packer_bootstrap then
     require('packer').sync()
